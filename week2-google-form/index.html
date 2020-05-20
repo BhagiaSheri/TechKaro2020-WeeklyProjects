@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your Google Account</title>
+
+    <!-- Scripting for Validation-->
+    <script>
+        function validateForm() {
+            for (var i = 0; i < 5; i++) {
+                var x = document.getElementsByClassName("inputs-validate")[i];
+                if (!x.checkValidity()){
+                    document.getElementsByClassName("inputs-validate")[i].style.border = "2px solid #d93025";
+                    document.getElementsByClassName("labels-floating")[i].style.color = "#d93025";
+                    document.getElementsByClassName("error")[i].style.display = "inline";
+                    if(i==2){
+                        document.getElementsByClassName("inputs-validate")[2].style.borderRight = "unset";
+                        document.getElementById("gmail").style.border = "2px solid #d93025";
+                        document.getElementById("gmail").style.borderLeft = "unset";
+                    }
+                    return false;
+                }
+                else {
+                    document.getElementsByClassName("inputs-validate")[i].style.border = "2px solid #1a73e8";
+                    document.getElementsByClassName("labels-floating")[i].style.color = "#1a73e8";
+                    document.getElementsByClassName("error")[i].style.display = "none";
+                    if(i==2){
+                        document.getElementsByClassName("inputs-validate")[2].style.borderRight = "unset";
+                        document.getElementById("gmail").style.border = "2px solid #1a73e8";
+                        document.getElementById("gmail").style.borderLeft = "unset";
+                    }
+                }
+            }
+        }
+    </script>
+    <!--Validation Ends Here-->
+
+    <!-- Font Awesome Link Here-->
+    <script src="https://kit.fontawesome.com/9e2173a16a.js" crossorigin="anonymous"></script>
+    <!-- Google Fonts External Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- External CSS File Link Here -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <section id="google-form">
+            <!-- Forms Fields -->
+            <div class="form-items" id="form-container">
+                <img src="images/google.png" alt="Google Logo Gif" width="80px" height="30px">
+                <h1>Create your Google Account</h1>
+                <form name="google-form">
+                    <p class="input-group">
+                        <input type="text" name="first-name" id="first-name" class="inputs-validate" required>
+                        <input type="text" name="last-name" id="last-name" class="inputs-validate" required>
+                        <label for="first-name" class="labels-floating" id="label-fname">First name</label>
+                        <label for="last-name" class="labels-floating" id="label-lname">Last name</label>
+                        <br>
+                        <label for="first-name" class="error"><i class="fas fa-exclamation-circle"></i> Enter fisrt
+                            name</label>
+                        <label for="last-name" class="error" id="error-lname"><i class="fas fa-exclamation-circle"></i>
+                            Enter last name</label>
+                    </p>
+
+                    <p class="input-group">
+                        <input type="email" name="username" id="username" class="inputs-validate" title="Email should contain @gmail.com" required>
+                        <input type="text" name="gmail" id="gmail" value="@gmail.com" disabled>
+                        <label for="username" class="labels-floating" id="label-username">Username</label>
+                        <br>
+                        <label for="username" class="error"><i class="fas fa-exclamation-circle"></i> Choose a gmail
+                            address</label>
+                    </p>
+
+                    <span>You'll need to confirm that this email belongs to you.
+                        <br>
+                        <a href="#">Use my current email address instead</a><br>
+                    </span>
+
+                    <p class="input-group">
+                        <input type="password" name="password" id="password" minlength="8" class="inputs-validate"
+                            title="Password should be 8 character long" required>
+                        <input type="password" name="confirm-password" id="confirm-password" minlength="8"
+                            class="inputs-validate" title="Confirm Password should be same 8 character long" required>
+                        <i class="far fa-eye-slash"></i>
+                        <label for="password" class="labels-floating" id="label-password">Password</label>
+                        <label for="confirm-password" class="labels-floating"
+                            id="label-confirm-password">Confirm</label>
+                        <br>
+                        <label for="password" class="error"><i class="fas fa-exclamation-circle"></i> Password 8 character long</label>
+                        <label for="confirm-password" class="error" id="error-cpass"><i class="fas fa-exclamation-circle"></i> Enter a
+                            Confirm password</label>
+                    </p>
+
+                    <span>
+                        Use 8 or more characters with a mix of letters, numbers & symbols
+                    </span>
+
+                    <span id="form-btn">
+                        <a href="#">Sign in instead</a>
+                        <button type="submit" onclick="validateForm()">Next</button>
+                    </span>
+                </form>
+            </div>
+
+            <!-- Form Image -->
+            <div class="form-items" id="form-image">
+                <img src="images/google-form-image.png" alt="Google Account Image">
+                <p>
+                    One account. All of Google working for you.
+                </p>
+            </div>
+        </section>
+
+        <!-- Bottom Header -->
+        <section id="bottom-header">
+            <div class="bottom-items">
+                <select name="language" id="language">
+                    <option value="english">English (United States) <i class="fas fa-sort-down"></i></option>
+                    <option value="urdu">Urdu</option>
+                    <option value="french">French</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="hindi">Hindi</option>
+                </select>
+            </div>
+            <div class="bottom-items">
+                <ul>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
