@@ -70,3 +70,10 @@ code{
     margin-left: 6%;
 }
 
+/* Media Queries*/
+@media screen and (max-width: 900px){
+    #JS{
+        font-size: 15px;
+    }   
+}
+
